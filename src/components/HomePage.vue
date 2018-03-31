@@ -1,8 +1,8 @@
 <template>
   <div class="container home-page">
-      <h1 class="header-text">
+      <span class="header-text">
           Oki Cospi
-      </h1>
+      </span>
   </div>
 </template>
 
@@ -12,12 +12,19 @@ export default {
 }
 </script>
 
-<style>
-    .header-text {
-        position: absolute;
-        font-size: 10em;
-        transform: translate(50%,50%);
-    }
+<style lang="stylus" scoped>
+    .home-page
+        background-image: url('./../assets/boat-girl.jpg')
+        background-size: cover
+        grid-column-end: span 3
+        height: 100vh
+        span
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%,-50%)
+            font-size: 10em
+            color: white            
 </style>
 
 
