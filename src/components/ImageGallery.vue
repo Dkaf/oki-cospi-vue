@@ -1,8 +1,9 @@
 <template>
   <div class="container image-gallery">
-      <div v-for="photo in photos" v-bind:key="photo.id">
-          <gallery-item :src="photo.url" :alt="photo.alt" />
-      </div>
+    <span class="header-text">Gallery</span>
+    <div v-for="photo in photos" v-bind:key="photo.id">
+        <gallery-item :src="photo.url" :alt="photo.alt" />
+    </div>
   </div>
 </template>
 
@@ -23,6 +24,9 @@ export default {
     grid-template-rows: minmax(100px, auto)
     grid-gap: 10px
     grid-column: 2
+    span
+      font-size: 8em
+      grid-column: span 3
 </style>
 
 
