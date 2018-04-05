@@ -1,19 +1,25 @@
 <template>
   <div id="app">
     <home-page />
+    <text-section />
     <image-gallery :photos="photos"/>
+    <social-media />
   </div>
 </template>
 
 <script>
-import HomePage from './components/HomePage.vue'
-import ImageGallery from './components/ImageGallery.vue'
+import HomePage from './components/HomePage'
+import ImageGallery from './components/ImageGallery'
+import TextSection from './components/TextSection'
+import SocialMedia from './components/SocialMedia'
 
 export default {
   name: 'app',
   components: {
     HomePage,
-    ImageGallery
+    ImageGallery,
+    TextSection,
+    SocialMedia
   },
   data: function() {
     return {
@@ -58,4 +64,6 @@ body
     grid-gap: 10px;
   .header-text
     font-family: 'Coves Bold'
+  .container
+    margin-bottom: 100px
 </style>
