@@ -27,6 +27,7 @@ export default {
     span
       font-size: 8em
       grid-column: span 3
+      margin-bottom: 50px
 </style>
 
 
