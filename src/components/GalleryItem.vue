@@ -12,6 +12,8 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+  .gallery-item
+    margin: 0
     img
       max-width: 300px
       max-height: auto
