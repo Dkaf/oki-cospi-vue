@@ -14,7 +14,7 @@ export default {
 
 <style lang="stylus" scoped>
     .home-page
-        background-image: url('./../assets/boat-girl.jpg')
+        background: linear-gradient(rgba(0, 0, 0, .45), rgba(0, 0, 0, .45)), url('./../assets/boat-girl.jpg')
         background-size: cover
         grid-column-end: span 3
         height: 100vh
