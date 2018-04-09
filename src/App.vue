@@ -4,6 +4,7 @@
     <text-section />
     <image-gallery :photos="photos"/>
     <social-media />
+    <footer-bar />
   </div>
 </template>
 
@@ -12,6 +13,7 @@ import HomePage from './components/HomePage'
 import ImageGallery from './components/ImageGallery'
 import TextSection from './components/TextSection'
 import SocialMedia from './components/SocialMedia'
+import FooterBar from './components/FooterBar'
 
 export default {
   name: 'app',
@@ -19,7 +21,8 @@ export default {
     HomePage,
     ImageGallery,
     TextSection,
-    SocialMedia
+    SocialMedia,
+    FooterBar
   },
   data: function() {
     return {

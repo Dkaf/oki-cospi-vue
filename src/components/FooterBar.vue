@@ -10,3 +10,10 @@ export default {
 }
 </script>
 
+<style lang="stylus" scoped>
+  div
+    background-color: #2c3e50
+    grid-column: span 3
+    height: 75px
+</style>
+
