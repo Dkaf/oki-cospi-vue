@@ -1,6 +1,6 @@
 <template>
   <div class="container image-gallery">
-    <span class="header-text">Gallery</span>
+    <span data-aos="fade-right" class="header-text">Gallery</span>
     <div v-for="photo in photos" v-bind:key="photo.id">
         <gallery-item :src="photo.url" :alt="photo.alt" />
     </div>
