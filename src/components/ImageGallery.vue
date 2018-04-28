@@ -1,7 +1,7 @@
 <template>
   <div class="container image-gallery">
     <span data-aos="fade-right" class="header-text">Gallery</span>
-    <div v-for="photo in photos" v-bind:key="photo.id">
+    <div v-for="photo in galleryImages" v-bind:key="photo.sys.id">
         <gallery-item :src="photo.url" :alt="photo.alt" />
     </div>
   </div>
@@ -9,11 +9,23 @@
 
 <script>
 import GalleryItem from './GalleryItem';
+import client from './../contentfulClient.js'
 
 export default {
   name: 'ImageGallery',
   components: {GalleryItem},
-  props: ['photos']
+  props: ['photos'],
+  data: function() {
+    return {
+      galleryImages: []
+    }
+  },
+  created: function() {
+    client.getEntries({'content_type':'galleryImage'})
+    .then((res)=> {
+      this.galleryImages = res.items
+    }).catch((err) => console.log(err))
+  }
 }
 </script>
 
