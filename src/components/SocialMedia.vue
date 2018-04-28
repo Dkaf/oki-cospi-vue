@@ -20,13 +20,8 @@
 </template>
 
 <script>
-import TransitionTitle from './TransitionTitle'
-
 export default {
-  name: 'SocialMedia',
-  components: {
-    TransitionTitle
-  }
+  name: 'SocialMedia'
 }
 </script>
 
