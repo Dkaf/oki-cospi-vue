@@ -2,7 +2,7 @@
   <div class="container image-gallery">
     <span data-aos="fade-right" class="header-text">Gallery</span>
     <div v-for="photo in galleryImages" v-bind:key="photo.sys.id">
-        <gallery-item :src="photo.url" :alt="photo.alt" />
+        <gallery-item :src="photo.fields.image.fields.file.url" :alt="photo.fields.costume" />
     </div>
   </div>
 </template>
