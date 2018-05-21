@@ -1,18 +1,38 @@
 <template>
   <div class="nav-bar">
-    <router-link to="/">Home</router-link>
-    <router-link to="/blog">Blog</router-link>
-    <router-link to="/patreon">Patreon</router-link>
+    <router-link v-for="(link, index) in links"
+      :key="index"
+      :to="link.path"
+      :class="linkColor"
+    >
+      {{link.name}}
+    </router-link>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'NavBar'
+  name: 'NavBar',
+  data: function() {
+    return {
+      links: [
+        {path: '/', name: 'Home'},
+        {path: '/blog', name: 'Blog'},
+        {path: '/patreon', name: 'Patreon'}
+      ],
+      linkColor: 'white'
+    }
+  },
+  watch: {
+    '$route' () {
+      this.$route.path !== '/' ? this.linkColor = 'grey' : this.linkColor = 'white'
+    }
+  }
 }
 </script>
 
 <style lang="stylus" scoped>
+  font-color = #2c3e50
   .nav-bar
     position: absolute
     right: 0
@@ -20,11 +40,16 @@ export default {
     z-index: 1
     a
       font-size: 2.5em
-      color: white
       text-decoration: none
       padding: 10px
-      &:active
-        color: white
+  .grey
+    color: font-color
+    &:active
+      color: font-color
+  .white
+    color: white
+    &:active
+      color: white
 </style>
 
 
