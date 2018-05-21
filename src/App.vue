@@ -17,6 +17,7 @@ export default {
 </script>
 
 <style lang="stylus">
+font-color = #2c3e50
 
 @font-face {
   font-family: 'Coves Light'
@@ -39,5 +40,5 @@ body
     -webkit-font-smoothing: antialiased
     -moz-osx-font-smoothing: grayscale
     text-align: center
-    color: #2c3e50
+    color: font-color
 </style>
