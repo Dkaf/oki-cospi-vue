@@ -13,10 +13,16 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+  $font-size = 3em
   .text-section
-    grid-column: 2
+    grid-area: bio
+    place-self: center
     p
-      font-size: 3em
+      font-size: ($font-size/2)
       padding: 15px
+  @media screen and (min-width: 700px)
+    .text-section
+      p
+        font-size: $font-size
 </style>
 
