@@ -1,15 +1,13 @@
 <template>
   <div class="container image-gallery">
-    <span data-aos="fade-right" class="header-text">Gallery</span>
-    <div v-for="photo in galleryImages" v-bind:key="photo.sys.id">
-        <gallery-item :src="photo.fields.image.fields.file.url" :alt="photo.fields.costume" />
-    </div>
+    <h1 data-aos="fade-right" class="header-text">Gallery</h1>
+      <gallery-item v-for="(image,i) in page.fields.gallery_images" :key="i" :src="image.image" alt="gallery image" />
   </div>
 </template>
 
 <script>
-import GalleryItem from './GalleryItem';
-import client from './../contentfulClient.js'
+import GalleryItem from './GalleryItem'
+import { butter } from '@/buttercms.js'
 
 export default {
   name: 'ImageGallery',
@@ -17,29 +15,36 @@ export default {
   props: ['photos'],
   data: function() {
     return {
-      galleryImages: []
+      page: {
+        fields: {}
+      }
+    }
+  },
+  methods: {
+    getPage() {
+      butter.page.retrieve('*', 'image-gallery')
+      .then(res => {
+        this.page = res.data.data
+      })
+      .else(err => {
+        console.log(err)
+      })
     }
   },
   created: function() {
-    client.getEntries({'content_type':'galleryImage'})
-    .then((res)=> {
-      this.galleryImages = res.items
-    }).catch((err) => console.log(err))
+    this.getPage()
   }
 }
 </script>
 
 <style lang="stylus" scoped>
   .image-gallery
-    display: grid
-    grid-template-columns: repeat(3, 1fr)
-    grid-template-rows: minmax(100px, auto)
-    grid-gap: 10px
-    grid-column: 2
-    span
-      font-size: 8em
-      grid-column: span 3
-      margin-bottom: 50px
+    display: flex
+    flex-flow: row wrap
+    grid-area: gallery
+    justify-content: center
+  .header-text
+    flex-basis: 100%
 </style>
 
 
