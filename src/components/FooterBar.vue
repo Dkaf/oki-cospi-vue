@@ -43,9 +43,12 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-  div
+  .footer-bar
+    position: absolute
+    bottom: 0
+    left: 0
+    width: 100%
     background-color: #2c3e50
-    grid-column: span 3
     height: 75px
   .icon
     color: white
