@@ -1,9 +1,9 @@
 <template>
   <div class="container social-media">
     <!-- <transition-title text="Social" /> -->
-    <span data-aos="fade-right" class="header-text main-header">Social</span>
+    <h1 data-aos="fade-right" class="header-text main-header">Social</h1>
     <div id="twitter-container">
-      <span data-aos="fade-up" class="header-text sub-header">Twitter</span>
+      <h2 data-aos="fade-up" class="header-text sub-header">Twitter</h2>
       <a class="twitter-timeline"
          data-chrome="transparent nofooter noborders"
          data-tweet-limit="3"
@@ -12,7 +12,7 @@
       </a>
     </div>
     <div id="instagram-container">
-      <span data-aos="fade-up" class="header-text sub-header">Instagram</span>
+      <h2 data-aos="fade-up" class="header-text sub-header">Instagram</h2>
       <!-- LightWidget WIDGET -->
       <iframe src="//lightwidget.com/widgets/93ab91e65f3a53838d541a449db8c9df.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width: 100%; border: 0; overflow: hidden;"></iframe>
     </div>
@@ -27,12 +27,16 @@ export default {
 
 <style lang="stylus" scoped>
   .social-media
-    grid-column: 2
-    display: grid
-    .main-header
-      grid-column: span 3
-      font-size: 8em
-    .sub-header
-      font-size: 5em
+    grid-area: social
+    display: flex
+    flex-flow: row wrap
+    justify-content: space-evenly
+  .sub-header
+    font-size: 3em
+  .main-header
+    flex-basis: 100%
+  #twitter-container
+  #instagram-container
+    max-width: 80%
 </style>
 
