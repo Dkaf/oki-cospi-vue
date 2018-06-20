@@ -1,5 +1,8 @@
 <template>
   <div class="nav-bar">
+    <div class="logo-container">
+      <img id="logo" :class="{tada: isAnimated}" class="animated" src="./../assets/Sticker.png" />
+    </div>
     <router-link v-for="(link, index) in links"
       :key="index"
       :to="link.path"
@@ -20,8 +23,18 @@ export default {
         {path: '/blog', name: 'Blog'},
         {path: '/patreon', name: 'Patreon'}
       ],
-      linkColor: 'white'
+      linkColor: 'white',
+      isAnimated: false
     }
+  },
+  methods: {
+    triggerAnimate() {
+      return this.isAnimated = !this.isAnimated
+    }
+  },
+  created: function() {
+    setInterval(this.triggerAnimate, 3000)
+    this.$route.path !== '/' ? this.linkColor = 'grey' : this.linkColor = 'white'
   },
   watch: {
     '$route' () {
@@ -34,14 +47,15 @@ export default {
 <style lang="stylus" scoped>
   font-color = #2c3e50
   .nav-bar
-    position: absolute
-    right: 0
-    padding: 20px
-    z-index: 1
+    display: flex
+    flex-flow: column
     a
       font-size: 2.5em
       text-decoration: none
       padding: 10px
+    #logo
+      height: 100px
+      padding: 25px
   .grey
     color: font-color
     &:active
@@ -50,6 +64,12 @@ export default {
     color: white
     &:active
       color: white
+  @media screen and (min-width: 700px)
+    .nav-bar
+      flex-flow: row
+      justify-content: flex-end
+      #logo
+        height: 200px
+      .logo-container
+        margin-right: auto
 </style>
-
-
