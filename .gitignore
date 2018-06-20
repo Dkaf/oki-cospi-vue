@@ -20,4 +20,4 @@ yarn-error.log*
 *.sln
 
 # API keys
-contentfulClient.js
+buttercms.js
