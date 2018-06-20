@@ -4,7 +4,6 @@
     <text-section />
     <image-gallery :photos="photos"/>
     <social-media />
-    <footer-bar />
   </div>
 </template>
 
@@ -13,7 +12,6 @@ import LandingPage from './LandingPage'
 import ImageGallery from './ImageGallery'
 import TextSection from './TextSection'
 import SocialMedia from './SocialMedia'
-import FooterBar from './FooterBar'
 
 export default {
   name: 'HomePage',
@@ -21,8 +19,7 @@ export default {
     LandingPage,
     ImageGallery,
     TextSection,
-    SocialMedia,
-    FooterBar
+    SocialMedia
   },
   data: function() {
     return {
@@ -38,15 +35,34 @@ export default {
 </script>
 
 <style lang="stylus">
-  .home-page
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: minmax(100px, auto);
-    grid-gap: 10px;
-  .header-text
-    font-family: 'Coves Bold'
-  .container
-    margin-bottom: 100px
+  .header-text 
+    font-size: 4em
+    padding: 25px
+  @css {
+    .home-page {
+      display: grid;
+      grid-column-gap: 20px;
+      grid-template-areas:
+        "landing"
+        "  bio  "
+        "gallery"
+        "social "
+    }
+  }
+  @media screen and (min-width: 700px)
+    .header-text
+      font-size: 8em
+    @css {
+    .home-page {
+      grid-template-columns: 20vw auto 20vmin;
+      grid-template-areas:
+        "landing landing landing"
+        ".......   bio   ......."
+        "....... gallery ......."
+        "....... social  ......."
+    }
+  }
+\
 </style>
 
 
