@@ -1,51 +1,43 @@
 <template>
   <div class="container landing-page">
-    <img id="logo" :class="{tada: isAnimated}" class="animated" src="./../assets/Sticker.png" />
-    <span class="header-text">
-      Oki Cospi
-    </span>
+    <div class="background-div">
+      <h1 class="title-text">
+        Oki Cospi
+      </h1>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'LandingPage',
-  data: function() {
-    return {
-      isAnimated: false
-    }
-  },
-  methods: {
-    triggerAnimate() {
-      return this.isAnimated = !this.isAnimated
-    }
-  },
-  created() {
-    setInterval(this.triggerAnimate, 3000)
-  }
+  name: 'LandingPage'
 }
 </script>
 
 <style lang="stylus" scoped>
   .landing-page
+    grid-area: landing
+    min-width: 100vmin
+    min-height: 100vmin
+  .background-div
     background: linear-gradient(rgba(0, 0, 0, .45), rgba(0, 0, 0, .45)), url('./../assets/boat-girl.jpg')
     background-size: cover
-    grid-column-end: span 3
-    height: 100vh
-    img
-      height: 200px
-      width: auto
-      position: absolute
-      top: 0
-      left: 0
-      padding: 25px
-    span
-      position: absolute
-      top: 50%
-      left: 50%
-      transform: translate(-50%,-50%)
+    width: 100%
+    min-width: 100vmin
+    min-height: 100vmin
+    display: flex
+    justify-content: center
+    align-items: center
+    position: absolute 
+    left: 0
+    top: 0
+    z-index: -1
+  .title-text
+    font-size: 4em
+    color: white
+  @media screen and (min-width: 700px)
+    .title-text
       font-size: 10em
-      color: white  
 </style>
 
 
