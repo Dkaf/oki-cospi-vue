@@ -4,6 +4,7 @@ import HomePage from './components/HomePage.vue'
 import PatreonPage from './components/PatreonPage.vue'
 import AdminPage from './components/AdminPage.vue'
 import BlogPage from './components/BlogPage.vue'
+import BlogPost from './components/BlogPost.vue'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
       path: '/blog',
       name: 'blogPage',
       component: BlogPage
+    },
+    {
+      path: '/blog/:slug',
+      name: 'blogPost',
+      component: BlogPost
     }
   ]
 })
