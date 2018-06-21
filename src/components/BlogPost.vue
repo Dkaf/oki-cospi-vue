@@ -1,8 +1,8 @@
 <template>
-  <div id="blog-post">
-    <h1>{{ post.data.title }}</h1>
-    <h4>{{ post.data.author.first_name }} {{ post.data.author.last_name }}</h4>
-    <div v-html="post.data.body"></div>
+  <div class="blog-post">
+    <h1 class="title">{{ post.data.title }}</h1>
+    <h4 class="author">{{ post.data.author.first_name }} {{ post.data.author.last_name }}</h4>
+    <div class="body" v-html="post.data.body"></div>
 
     <router-link v-if="post.meta.previous_post" :to="/blog/ + post.meta.previous_post.slug" class="button">
       {{ post.meta.previous_post.title }}
@@ -36,6 +36,7 @@ export default {
     }
   },
   watch: {
+    // eslint-disable-next-line
     $route(to, from) {
       this.getPost()
     }
@@ -45,4 +46,18 @@ export default {
   }
 }
 </script>
+
+<style lang="stylus" scoped>
+  .blog-post
+
+    .title
+      font-size: 10em
+    .body
+      font-size: 2em
+      line-height: 1.58
+      letter-spacing: -.003em
+      width: 50%
+      margin: 0 auto
+      padding: 25px
+</style>
 
