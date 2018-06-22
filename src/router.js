@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HomePage from './components/HomePage.vue'
-import PatreonPage from './components/PatreonPage.vue'
+import StorePage from './components/StorePage.vue'
 import AdminPage from './components/AdminPage.vue'
 import BlogPage from './components/BlogPage.vue'
 import BlogPost from './components/BlogPost.vue'
@@ -21,9 +21,9 @@ export default new Router({
       component: AdminPage
     },
     {
-      path:'/patreon',
-      name: 'patreonPage',
-      component: PatreonPage
+      path:'/store',
+      name: 'storePage',
+      component: StorePage
     },
     {
       path: '/blog',

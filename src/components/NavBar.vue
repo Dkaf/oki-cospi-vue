@@ -21,7 +21,7 @@ export default {
       links: [
         {path: '/', name: 'Home'},
         {path: '/blog', name: 'Blog'},
-        {path: '/patreon', name: 'Patreon'}
+        {path: '/store', name: 'Store'}
       ],
       linkColor: 'white',
       isAnimated: false
