@@ -11,6 +11,7 @@
     "@fortawesome/fontawesome": "^1.1.5",
     "@fortawesome/fontawesome-free-brands": "^5.0.10",
     "@fortawesome/vue-fontawesome": "0.0.22",
+    "@moltin/sdk": "^3.12.0",
     "animate.css": "^3.6.1",
     "aos": "^2.2.0",
     "axios": "^0.18.0",
