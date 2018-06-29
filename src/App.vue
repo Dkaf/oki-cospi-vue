@@ -62,4 +62,9 @@ body
       margin: 0
       font-weight: normal
       font-family: 'Coves Bold'
+    a
+      color: font-color
+      text-decoration: none
+      &:visited
+        color: font-color
 </style>
