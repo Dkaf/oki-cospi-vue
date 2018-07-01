@@ -61,7 +61,6 @@ export default {
     font-size: 5em
     padding: 25px
     grid-area: header
-    place-self: center
   .post-container
     grid-area: body
     display: flex
@@ -77,8 +76,8 @@ export default {
     @css {
       .blog-page {
         grid:
-          [row1-start] "header header header" 1fr [row1-end]
-          [row2-start] " ....   body   .... " 2fr [row2-end]
+          [row1-start] "header header header" 200px [row1-end]
+          [row2-start] " ....   body   .... " 1fr [row2-end]
           / 10% auto 10%
       }
     }
