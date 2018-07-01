@@ -54,7 +54,6 @@ export default {
       font-size: 8em
     @css {
     .home-page {
-      grid-template-columns: 20vw auto 20vmin;
       grid-template-areas:
         "landing landing landing"
         ".......   bio   ......."
