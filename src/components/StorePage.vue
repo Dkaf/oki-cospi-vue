@@ -2,7 +2,12 @@
   <div class="container store-page">
     <h1 class="main-header">Store</h1>
     <div class="products" v-for="(product, i) in products" :key="'product.slug' + '_' + i">
-      <product-preview :slug="product.slug" :src="images[i].link.href" :name="product.name" />
+      <product-preview
+        :slug="product.slug"
+        :src="images[i].link.href"
+        :name="product.name"
+        :price="product.meta.display_price.without_tax.formatted"
+      />
     </div>
   </div>
 </template>
