@@ -39,8 +39,23 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+  .store-page
+    display: grid
   .main-header
     font-size: 5em
+    grid-area: header
+  .products
+    grid-area: body
+  @media screen and (min-width: 700px) {
+    @css {
+      .store-page {
+        grid:
+          [row1-start] "header header header" 200px [row1-end]
+          [row2-start] " ....   body   .... " 1fr [row2-end]
+          / 10% auto 10%
+      }
+    }
+  }
 </style>
 
 
