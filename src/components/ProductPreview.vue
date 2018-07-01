@@ -1,12 +1,14 @@
 <template>
   <div class="product-preview">
-    <router-link :to="'/store/' + slug">
-      <img class="product-img" :src="src" :alt="alt" />
-      <div class="product-info">
-        <span class="product-name">{{ name }}</span>
-        <span class="price">{{ price }}</span>
-      </div>
-    </router-link>
+    <div class="product-container">
+      <router-link :to="'/store/' + slug">
+        <img class="product-img" :src="src" :alt="alt" />
+        <div class="product-info">
+          <span class="product-name">{{ name }}</span>
+          <span class="price">{{ price }}</span>
+        </div>
+      </router-link>
+    </div>
   </div>
 </template>
 
