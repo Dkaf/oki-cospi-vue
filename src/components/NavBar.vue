@@ -56,14 +56,15 @@ export default {
     #logo
       height: 100px
       padding: 25px
+      position: absolute
   .grey
     color: font-color
     &:active
       color: font-color
   .white
-    color: white
+    color: white !important
     &:active
-      color: white
+      color: white !important
   @media screen and (min-width: 700px)
     .nav-bar
       flex-flow: row
