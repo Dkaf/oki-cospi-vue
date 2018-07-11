@@ -3,7 +3,7 @@
     <router-link :to="'/blog/' + slug">
       <article class="media">
         <figure class="img-container">
-          <img class="thumbnail" v-if="featured_image" :src="featured_image" alt="">
+          <img class="thumbnail" v-if="image" :src="image" alt="">
           <img class="thumbnail" v-else src="http://via.placeholder.com/250x250" alt="">
         </figure>
         <h2 class="title">{{ title }}</h2>
