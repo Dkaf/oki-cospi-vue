@@ -4,44 +4,26 @@
     <div class="post-container">
       <div class="post" v-for="(post,index) in posts" :key="post.slug + '_' + index">
         <!-- insert post preview component -->
-        <post-preview :slug="post.slug" :title="post.title" :summary="truncateStr(post.summary)" :image="post.featured_image" />
+        <post-preview :slug="post.slug" :title="post.title" :summary="post.summary" :image="post.featured_image" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import PostPreview from './PostPreview'
-import { butter } from '@/buttercms'
 
 export default {
   name: 'BlogPage',
   components: { PostPreview },
-  data() {
-    return {
-      posts: []
-    }
-  },
-  methods: {
-    getPosts() {
-      butter.post.list({
-        page: 1,
-        page_size: 10
-      }).then(res => {
-        console.log(res.data)
-        this.posts = res.data.data
-      })
-    },
-    truncateStr(str, length=100, ending='...') {
-      if(str.length > length) {
-        return str.substring(0, length - ending.length) + ending
-      } else {
-        return str
-      }
-    }
+  computed: {
+    ...mapGetters('blog', {
+      posts: 'trimmedPosts'
+    })
   },
   created() {
-    this.getPosts();
+    this.$store.dispatch('blog/getAllPosts')
   }
 }
 </script>

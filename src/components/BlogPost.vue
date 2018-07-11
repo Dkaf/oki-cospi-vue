@@ -19,35 +19,22 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import { butter } from '@/buttercms'
 
 export default {
   name: 'BlogPost',
-  data() {
-    return {
-      post: {}
-    }
-  },
-  methods: {
-    getPost() {
-      butter.post.retrieve(this.$route.params.slug)
-      .then(res => {
-        console.log(res.data)
-        this.post = res.data
-      })
-      .catch(err => {
-        console.log(err)
-      })
-    }
-  },
+  computed: mapState({
+    post: state => state.blog.selectedPost
+  }),
   watch: {
     // eslint-disable-next-line
     $route(to, from) {
-      this.getPost()
+      this.$store.dispatch('blog/getPost', this.$route.params.slug)
     }
   },
   created() {
-    this.getPost();
+    this.$store.dispatch('blog/getPost', this.$route.params.slug)
   }
 }
 </script>

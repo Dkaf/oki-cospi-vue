@@ -4,41 +4,27 @@
     <div class="products" v-for="(product, i) in products" :key="'product.slug' + '_' + i">
       <product-preview
         :slug="product.slug"
-        :src="images[i].link.href"
+        :src="product.image"
         :name="product.name"
-        :price="product.meta.display_price.without_tax.formatted"
+        :price="product.price"
       />
     </div>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import { Moltin } from '@/moltin'
 import ProductPreview from './ProductPreview'
 
 export default {
   name: 'StorePage',
   components: {ProductPreview},
-  data() {
-    return {
-      products: [],
-      images: []
-    }
-  },
-  methods: {
-    getProducts() {
-      Moltin.Products.With('main_image').All().then(res => {
-        console.log(res)
-        this.products = res.data;
-        this.images = res.included.main_images
-      })
-      .catch(err => {
-        console.log(err)
-      })
-    }
-  },
+  computed: mapState({
+      products: state => state.shop.products
+  }),
   created() {
-    this.getProducts()
+    this.$store.dispatch('shop/getAllProducts')
   }
 }
 </script>
