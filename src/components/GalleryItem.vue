@@ -1,7 +1,7 @@
 <template>
   <div class="container gallery-item">
     <img class="gallery-img" @hover="imgHover" v-bind:style="{ background: overlay }" :src="src" :alt="alt" />
-    <img class="gallery-img" :src="src" :alt="alt" />
+    <!-- <img class="gallery-img" :src="src" :alt="alt" /> -->
   </div>
 </template>
 
@@ -10,7 +10,9 @@
     name: "GalleryItem",
     props: [
       'src',
-      'alt'
+      'alt',
+      'imgHover',
+      'overlay'
       ]
   }
 </script>
