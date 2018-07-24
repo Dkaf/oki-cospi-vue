@@ -22,8 +22,6 @@ export default {
 <style lang="stylus">
 font-color = #2c3e50
 
-html, body
-  height: 100vh
 
 @font-face {
   font-family: 'Coves Light'
@@ -39,19 +37,22 @@ html, body
        url("./assets/coves-font/coves_bold-webfont.woff") format("woff")
 }
 
+html, body
+  height: 100vh
+  font-size: 16px
+
 body
   margin: 0
   #app
     @css {
-      grid-template-areas:
-        "nav "
-        "main";
+      grid:
+        [row1-start] "nav " 200px [row1-end]
+        [row2-start] "main" 1fr [row2-end]
+        / 1fr;
     }
-    display: grid
+    display: grid;
     .view
       grid-area: main
-    .nav-bar
-      grid-area: nav
     font-family: 'Coves Light', Helvetica, Arial, sans-serif
     -webkit-font-smoothing: antialiased
     -moz-osx-font-smoothing: grayscale
