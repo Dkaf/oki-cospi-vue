@@ -1,8 +1,8 @@
 <template>
   <div class="container store-page">
-    <h1 class="main-header">Store</h1>
-    <div class="products" v-for="(product, i) in products" :key="'product.slug' + '_' + i">
+    <div class="products">
       <product-preview
+        v-for="(product, i) in products" :key="'product.slug' + '_' + i"
         :slug="product.slug"
         :src="product.image"
         :name="product.name"
@@ -14,7 +14,6 @@
 
 <script>
 import { mapState } from 'vuex'
-import { Moltin } from '@/moltin'
 import ProductPreview from './ProductPreview'
 
 export default {
@@ -37,6 +36,8 @@ export default {
     grid-area: header
   .products
     grid-area: body
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr
   @media screen and (min-width: 700px) {
     @css {
       .store-page {
