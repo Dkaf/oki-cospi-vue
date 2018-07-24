@@ -13,7 +13,7 @@ const actions = {
       commit(galleryMutations.SET_GALLERY, res.data.data)
     })
     .catch(err => {
-      console.log(err)
+      throw new Error(err.message)
     })
   }
 }
