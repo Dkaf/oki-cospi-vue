@@ -1,5 +1,6 @@
 <template>
   <div class="blog-post">
+    <font-awesome-icon icon="arrow-circle-left" class="back-arrow" @click="goBack"/>
     <div class="author-info">
       <img class="profile-img" :src="post.data.author.profile_image"/>
       <h4 class="author">{{ post.data.author.first_name }} {{ post.data.author.last_name }}</h4>
@@ -31,6 +32,11 @@ export default {
     // eslint-disable-next-line
     $route(to, from) {
       this.$store.dispatch('blog/getPost', this.$route.params.slug)
+    }
+  },
+  methods: {
+    goBack() {
+      this.$router.go(-1)
     }
   },
   created() {
