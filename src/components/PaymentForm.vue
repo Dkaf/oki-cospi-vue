@@ -83,9 +83,11 @@ export default {
     flex-flow: column
     text-align: left
     padding: 10px
-  // input
-  //   &:focus
-  //     border-color: #ff7878
+  input
+    border: 1px solid
+    border-radius: 4px
+    &:focus
+      border-color: #ff7878
   .stripe-card
     border: 1px solid grey
   .stripe-card.complete
