@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import HomePage from './components/HomePage.vue'
 import StorePage from './components/StorePage.vue'
 import ProductPage from './components/ProductPage.vue'
+import CartPage from './components/CartPage.vue'
+import CheckoutPage from './components/CheckoutPage.vue'
 import AdminPage from './components/AdminPage.vue'
 import BlogPage from './components/BlogPage.vue'
 import BlogPost from './components/BlogPost.vue'
@@ -25,6 +27,16 @@ export default new Router({
       path:'/store',
       name: 'storePage',
       component: StorePage
+    },
+    {
+      path:'/store/cart',
+      name:'cartPage',
+      component: CartPage
+    },
+    {
+      path:'/store/checkout',
+      name:'checkoutPage',
+      component: CheckoutPage
     },
     {
       path:'/store/:slug',
