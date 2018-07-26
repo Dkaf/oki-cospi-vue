@@ -1,6 +1,5 @@
 <template>
   <div class="home-page" >
-    <landing-page />
     <text-section />
     <image-gallery :photos="photos"/>
     <social-media />
