@@ -1,4 +1,3 @@
-import { butter } from '@/buttercms'
 import { galleryMutations } from '../mutation-types'
 
 
@@ -8,12 +7,10 @@ const state = {
 
 const actions = {
   getPage({ commit }) {
-    butter.page.retrieve('*', 'image-gallery')
-    .then(res => {
-      commit(galleryMutations.SET_GALLERY, res.data.data)
-    })
-    .catch(err => {
-      throw new Error(err.message)
+    this.$prismic.client.query(
+      this.$prismic.Predicates.at('document.type', 'gallery_item')
+    ).then((response) => {
+      // response is the response object, response.results holds the documents
     })
   }
 }

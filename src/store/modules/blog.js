@@ -1,4 +1,3 @@
-import { butter } from '@/buttercms'
 import { blogMutations } from '../mutation-types'
 
 
@@ -21,23 +20,10 @@ const getters = {
 
 const actions = {
   getAllPosts({ commit }) {
-    butter.post.list({
-      page: 1,
-      page_size: 10
-    }).then(res => {
-      console.log(res.data)
-      commit(blogMutations.SET_POSTS, res.data.data)
-    })
+
   },
   getPost({ commit }, slug) {
-    butter.post.retrieve(slug)
-    .then(res => {
-      console.log(res.data)
-      commit(blogMutations.SET_SELECTED_POST, res.data)
-    })
-    .catch(err => {
-      console.log(err)
-    })
+
   }
 }
 

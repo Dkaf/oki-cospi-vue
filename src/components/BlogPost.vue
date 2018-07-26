@@ -21,7 +21,6 @@
 
 <script>
 import { mapState } from 'vuex'
-import { butter } from '@/buttercms'
 
 export default {
   name: 'BlogPost',
